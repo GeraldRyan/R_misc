@@ -26,7 +26,9 @@ age <- content %>% html_nodes('span.age') %>% html_text()
 # Fix row count mismatch (naive solution-- but my own)
 rws = c(NROW(title),NROW(link_domain), NROW(score), NROW(age))
 minrw = min(rws)
+minrw
 
-df <- data.frame(title = title[0:min], link_domain = link_domain[0:min], score = score[0:min], age = age[0:min])
+df <- data.frame(title = title[0:minrw], link_domain = link_domain[0:minrw], score = score[0:minrw], age = age[0:minrw])
+df
 #Naive way of extracting the entire page content with this table
 #tb <- content %>% html_node('table.itemlist') %>% html_text()
